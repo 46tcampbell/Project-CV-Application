@@ -1,22 +1,31 @@
 import '../styles/GeneralInfoDisplay.css';
+import GeneralInfoForm from './GeneralInfoForm';
 import Button from './Button';
 
-export default function GeneralInfoDisplay() {
+export default function GeneralInfoDisplay({
+  toggleModal,
+  name,
+  phone,
+  email,
+}) {
   return (
     <>
       <header>
-        <h1>Thomas Campbell</h1>
+        <h1>{name}</h1>
         <address>
-          <a href='mailto:tom.campbell.101@gmail.com'>
-            tom.campbell.101@gmail.com
-          </a>
-          <a href='tel:+16303061542'>+1 (630) 306‑1542</a>
+          <a href={'mailto:' + email}>{email}</a>
+          <a href={'tel:+' + phone}>{phone}</a>
         </address>
         <div className='buttonDiv'>
-          <Button text={'Edit'} backgroundColor={'#2196f3'} />
-          <Button text={'Submit'} backgroundColor={'#4caf50'} />
+          <Button
+            text={'Edit'}
+            backgroundColor={'#2196f3'}
+            clickHandler={toggleModal}
+          />
         </div>
       </header>
     </>
   );
 }
+
+// const test = () => alert('Hey');

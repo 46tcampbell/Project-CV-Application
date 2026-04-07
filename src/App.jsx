@@ -1,10 +1,10 @@
 import './App.css';
-import GeneralInfoDisplay from './components/GeneralInfoDisplay';
-
+// import Modal from './components/Modal';
+import GeneralInfoSection from './components/GeneralInfoSection';
 function App() {
   return (
     <>
-      <GeneralInfoDisplay />
+      <GeneralInfoSection />
     </>
   );
 }
