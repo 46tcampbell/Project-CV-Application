@@ -23,6 +23,7 @@ export default function GeneralInfoForm({
               id='name'
               value={name}
               onChange={handleNameChange}
+              required
             />
           </div>
           <div className='form-group'>
@@ -33,6 +34,7 @@ export default function GeneralInfoForm({
               id='email'
               value={email}
               onChange={handleEmailChange}
+              required
             />
           </div>
           <div className='form-group'>
@@ -43,6 +45,7 @@ export default function GeneralInfoForm({
               id='phone'
               value={phone}
               onChange={handlePhoneChange}
+              required
             />
           </div>
           <div className='buttonDiv'>

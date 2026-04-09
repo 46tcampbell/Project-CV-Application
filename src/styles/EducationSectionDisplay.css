@@ -1,0 +1,10 @@
+div.schoolDiv {
+  padding-left: 1rem;
+}
+
+div.studyDiv {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
