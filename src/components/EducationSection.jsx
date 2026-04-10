@@ -1,62 +1,73 @@
 import '../styles/EducationSection.css';
 import { useState } from 'react';
+import Button from './Button';
 import EducationSectionForm from './EducationSectionForm';
 import EducationSectionDisplay from './EducationSectionDisplay';
-
 export default function EducationSection() {
+  const [education, setEducation] = useState([
+    {
+      schoolName: 'Loyola University Chicago',
+      degree: 'Psychology',
+      startDate: '2010-08-01',
+      endDate: '2014-05-01',
+      id: crypto.randomUUID(),
+    },
+  ]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [schoolName, setSchoolName] = useState('Loyola University Chicago');
-  const [degree, setDegree] = useState('Psychology');
-  const [startDate, setStartDate] = useState('2010-08-01');
-  const [endDate, setEndDate] = useState('2014-05-01');
 
   function toggleModal() {
     setIsModalOpen(!isModalOpen);
   }
 
-  function handleSchoolNameChange(e) {
-    setSchoolName(e.target.value);
-  }
-
-  function handleDegreeChange(e) {
-    setDegree(e.target.value);
-  }
-  function handleStartDateChange(e) {
-    setStartDate(e.target.value);
-  }
-  function handleEndDateChange(e) {
-    setEndDate(e.target.value);
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
-    // setName(e.target.value);
-    // setEmail(e.target.value);
-    // setPhone(e.target.value);
+    const newEducation = {
+      id: e.target.children.id.value,
+      schoolName: e.target.elements.schoolName.value,
+      degree: e.target.elements.degree.value,
+      startDate: e.target.elements.startDate.value,
+      endDate: e.target.elements.endDate.value,
+    };
+    setEducation([...education, newEducation]);
+    console.log(education);
+    e.target.children.id.value = '';
+    e.target.elements.schoolName.value = '';
+    e.target.elements.degree.value = '';
+    e.target.elements.startDate.value = '';
+    e.target.elements.endDate.value = '';
     setIsModalOpen(false);
   }
 
   return (
     <>
-      <EducationSectionForm
-        dialogIsOpen={isModalOpen}
-        handleSubmit={handleSubmit}
-        handleSchoolNameChange={handleSchoolNameChange}
-        handleDegreeChange={handleDegreeChange}
-        handleStartDateChange={handleStartDateChange}
-        handleEndDateChange={handleEndDateChange}
-        schoolName={schoolName}
-        degree={degree}
-        startDate={startDate}
-        endDate={endDate}
-      />
-      <EducationSectionDisplay
-        toggleModal={toggleModal}
-        schoolName={schoolName}
-        degree={degree}
-        startDate={startDate}
-        endDate={endDate}
-      />
+      <section>
+        <h2>Education:</h2>
+        {education.map((school) => {
+          return (
+            <EducationSectionDisplay
+              key={school.id}
+              id={school.id}
+              schoolName={school.schoolName}
+              degree={school.degree}
+              startDate={school.startDate}
+              endDate={school.endDate}
+              setEducation={setEducation}
+              education={education}
+            />
+          );
+        })}
+        <div className='buttonDiv'>
+          <Button
+            text={'Add New Education'}
+            backgroundColor={'#4caf50'}
+            clickHandler={toggleModal}
+          />
+        </div>
+        <EducationSectionForm
+          dialogIsOpen={isModalOpen}
+          handleSubmit={handleSubmit}
+        />
+      </section>
     </>
   );
 }

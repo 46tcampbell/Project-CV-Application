@@ -4,14 +4,15 @@ import Button from './Button';
 export default function EducationSectionForm({
   dialogIsOpen,
   handleSubmit,
-  handleSchoolNameChange,
-  handleDegreeChange,
-  handleStartDateChange,
-  handleEndDateChange,
-  schoolName,
-  startDate,
-  endDate,
-  degree,
+  // handleSchoolNameChange,
+  // handleDegreeChange,
+  // handleStartDateChange,
+  // handleEndDateChange,
+  schoolName = '',
+  startDate = '',
+  endDate = '',
+  degree = '',
+  id = crypto.randomUUID(),
 }) {
   return (
     <>
@@ -23,8 +24,8 @@ export default function EducationSectionForm({
               type='text'
               name='schoolName'
               id='schoolName'
-              value={schoolName}
-              onChange={handleSchoolNameChange}
+              defaultValue={schoolName}
+              // onChange={handleSchoolNameChange}
               required
             />
           </div>
@@ -34,8 +35,8 @@ export default function EducationSectionForm({
               type='text'
               name='degree'
               id='degree'
-              value={degree}
-              onChange={handleDegreeChange}
+              defaultValue={degree}
+              // onChange={handleDegreeChange}
               required
             />
           </div>
@@ -45,8 +46,8 @@ export default function EducationSectionForm({
               type='date'
               name='startDate'
               id='startDate'
-              value={startDate}
-              onChange={handleStartDateChange}
+              defaultValue={startDate}
+              // onChange={handleStartDateChange}
               required
             />
           </div>
@@ -56,11 +57,12 @@ export default function EducationSectionForm({
               type='date'
               name='endDate'
               id='endDate'
-              value={endDate}
-              onChange={handleEndDateChange}
+              defaultValue={endDate}
+              // onChange={handleEndDateChange}
               required
             />
           </div>
+          <input type='hidden' name='id' id='id' value={id} />
           <div className='buttonDiv'>
             <Button text={'Cancel'} backgroundColor={'#8f8b8b'} />
             <Button text={'Submit'} backgroundColor={'#4caf50'} />

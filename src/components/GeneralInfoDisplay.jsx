@@ -18,7 +18,7 @@ export default function GeneralInfoDisplay({
         </address>
         <div className='buttonDiv'>
           <Button
-            text={'Edit'}
+            text={'Edit General Info'}
             backgroundColor={'#2196f3'}
             clickHandler={toggleModal}
           />

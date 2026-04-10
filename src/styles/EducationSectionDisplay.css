@@ -1,5 +1,5 @@
 div.schoolDiv {
-  padding-left: 1rem;
+  padding: 0 0 1rem 1rem;
 }
 
 div.studyDiv {
@@ -7,4 +7,21 @@ div.studyDiv {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+div.schoolNameButtonDiv {
+  /* padding: 0 1rem; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+div.schoolNameButtonDiv button {
+  padding: 0 0.2rem;
+  border-radius: 0.5rem;
+}
+
+div.schoolNameButtonDiv div.buttonDiv {
+  gap: 0.5rem;
 }

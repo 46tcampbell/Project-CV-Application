@@ -1,3 +1,7 @@
+header {
+  padding-bottom: 1rem;
+}
+
 h1 {
   text-align: center;
 }
@@ -6,6 +10,7 @@ address {
   display: flex;
   justify-content: center;
   gap: 2rem;
+  padding-bottom: 1rem;
 }
 
 a {
@@ -27,7 +32,6 @@ a[href^='tel']::before {
 }
 
 div.buttonDiv {
-  margin-top: 1rem;
   display: flex;
   justify-content: center;
   gap: 2rem;

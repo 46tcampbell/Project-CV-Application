@@ -5,11 +5,13 @@ export default function Button({
   text,
   color = 'white',
   backgroundColor,
+  dataId = '',
 }) {
   return (
     <button
       style={{ color: color, backgroundColor: backgroundColor }}
       onClick={clickHandler}
+      data-id={dataId}
     >
       {text}
     </button>
