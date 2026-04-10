@@ -1,15 +1,18 @@
-import '../styles/EducationSectionDisplay.css';
+import '../styles/PracticalSectionDisplay.css';
 import { useState } from 'react';
-import EducationSectionForm from './EducationSectionForm';
+import PracticalSectionForm from './PracticalSectionForm';
 import Button from './Button';
 
-export default function EducationSectionDisplay({
-  schoolName,
-  degree,
+export default function PracticalSectionDisplay({
+  companyName,
+  positionTitle,
+  responsibility1,
+  responsibility2,
+  responsibility3,
   startDate,
   endDate,
-  setEducation,
-  education,
+  setWork,
+  work,
   id,
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,50 +30,59 @@ export default function EducationSectionDisplay({
     month: 'long',
     day: 'numeric',
   }); // Result: "January 1, 2024"
+
   function toggleModal() {
     setIsModalOpen(!isModalOpen);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    const updatedArray = education.map((school) =>
-      school.id === e.target.children.id.value
+    console.dir(e);
+    console.log(work);
+    const updatedArray = work.map((company) =>
+      company.id === e.target.elements.id.value
         ? {
-            ...school,
-            id: e.target.children.id.value,
-            schoolName: e.target.elements.schoolName.value,
-            degree: e.target.elements.degree.value,
+            ...company,
+            id: e.target.elements.id.value,
+            companyName: e.target.elements.companyName.value,
+            positionTitle: e.target.elements.positionTitle.value,
             startDate: e.target.elements.startDate.value,
             endDate: e.target.elements.endDate.value,
+            responsibility1: e.target.elements.responsibility1.value,
+            responsibility2: e.target.elements.responsibility2.value,
+            responsibility3: e.target.elements.responsibility3.value,
           }
-        : { ...school }
+        : { ...company }
     );
-    setEducation(updatedArray);
+    setWork(updatedArray);
     setIsModalOpen(false);
   }
 
-  function deleteEducation(e) {
+  function deleteWork(e) {
     console.dir(e.target.dataset.id);
-    const updatedArray = education.filter(
-      (school) => school.id !== e.target.dataset.id
+    const updatedArray = work.filter(
+      (company) => company.id !== e.target.dataset.id
     );
-    setEducation(updatedArray);
+    setWork(updatedArray);
   }
 
   return (
     <>
-      <EducationSectionForm
+      <PracticalSectionForm
         dialogIsOpen={isModalOpen}
         handleSubmit={handleSubmit}
-        schoolName={schoolName}
-        degree={degree}
+        companyName={companyName}
+        positionTitle={positionTitle}
         startDate={startDate}
         endDate={endDate}
         id={id}
+        responsibility1={responsibility1}
+        responsibility2={responsibility2}
+        responsibility3={responsibility3}
       />
       <div className='schoolDiv'>
         <div className='schoolNameButtonDiv'>
-          <h3>{schoolName}</h3>
+          <h3>{companyName}</h3>
 
           <div className='buttonDiv'>
             <Button
@@ -81,14 +93,21 @@ export default function EducationSectionDisplay({
             <Button
               text={'❌'}
               backgroundColor={'#9e9e9e'}
-              clickHandler={deleteEducation}
+              clickHandler={deleteWork}
               dataId={id}
             />
           </div>
         </div>
         <div className='studyDiv'>
-          <p>{degree}</p>
+          <p>{positionTitle}</p>
           <p>{readableStartDate + ' - ' + readableEndDate}</p>
+        </div>
+        <div className='mainResponsibilitiesDiv'>
+          <ul>
+            <li>{responsibility1}</li>
+            {responsibility2 ? <li>{responsibility2}</li> : null}
+            {responsibility3 ? <li>{responsibility3}</li> : null}
+          </ul>
         </div>
       </div>
     </>
