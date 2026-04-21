@@ -60,7 +60,7 @@ dialog:open::before {
   content: '';
   position: fixed;
   top: -300px;
-  left: -300px;
+  left: -600px;
   width: 300vw;
   height: 300vh;
   background-color: rgba(0, 0, 0, 0.5); /* Backdrop color */
