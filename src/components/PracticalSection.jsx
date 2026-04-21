@@ -60,7 +60,7 @@ export default function PracticalSection() {
   return (
     <>
       <section>
-        <h2>Work Experience:</h2>
+        <h2>Work Experience</h2>
         {work.map((company) => {
           return (
             <PracticalSectionDisplay
@@ -88,6 +88,7 @@ export default function PracticalSection() {
         <PracticalSectionForm
           dialogIsOpen={isModalOpen}
           handleSubmit={handleSubmit}
+          className={'AddNewWork'}
         />
       </section>
     </>

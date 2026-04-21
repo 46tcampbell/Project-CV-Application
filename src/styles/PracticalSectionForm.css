@@ -1,0 +1,8 @@
+/* Open state of the dialog  */
+section dialog:open {
+  transform: translateY(-58%);
+}
+
+dialog.AddNewWork:open {
+  transform: translateY(-100%);
+}

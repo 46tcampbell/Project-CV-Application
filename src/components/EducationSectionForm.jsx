@@ -4,19 +4,16 @@ import Button from './Button';
 export default function EducationSectionForm({
   dialogIsOpen,
   handleSubmit,
-  // handleSchoolNameChange,
-  // handleDegreeChange,
-  // handleStartDateChange,
-  // handleEndDateChange,
   schoolName = '',
   startDate = '',
   endDate = '',
   degree = '',
   id = crypto.randomUUID(),
+  className = '',
 }) {
   return (
     <>
-      <dialog open={dialogIsOpen}>
+      <dialog open={dialogIsOpen} className={className}>
         <form method='dialog' onSubmit={handleSubmit}>
           <div className='form-group'>
             <label htmlFor='schoolName'>School Name: </label>
@@ -64,7 +61,6 @@ export default function EducationSectionForm({
           </div>
           <input type='hidden' name='id' id='id' value={id} />
           <div className='buttonDiv'>
-            <Button text={'Cancel'} backgroundColor={'#8f8b8b'} />
             <Button text={'Submit'} backgroundColor={'#4caf50'} />
           </div>
         </form>

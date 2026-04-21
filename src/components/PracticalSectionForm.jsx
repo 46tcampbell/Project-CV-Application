@@ -16,10 +16,11 @@ export default function PracticalSectionForm({
   responsibility2 = '',
   responsibility3 = '',
   id = crypto.randomUUID(),
+  className = '',
 }) {
   return (
     <>
-      <dialog open={dialogIsOpen}>
+      <dialog open={dialogIsOpen} className={className}>
         <form method='dialog' onSubmit={handleSubmit}>
           <div className='form-group'>
             <label htmlFor='companyName'>Company Name: </label>
@@ -98,7 +99,6 @@ export default function PracticalSectionForm({
           </div>
           <input type='hidden' name='id' id='id' value={id} />
           <div className='buttonDiv'>
-            <Button text={'Cancel'} backgroundColor={'#8f8b8b'} />
             <Button text={'Submit'} backgroundColor={'#4caf50'} />
           </div>
         </form>

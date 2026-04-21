@@ -27,7 +27,8 @@ export default function EducationSectionDisplay({
     month: 'long',
     day: 'numeric',
   }); // Result: "January 1, 2024"
-  function toggleModal() {
+  function toggleModal(e) {
+    e.preventDefault();
     setIsModalOpen(!isModalOpen);
   }
 
@@ -67,6 +68,8 @@ export default function EducationSectionDisplay({
         startDate={startDate}
         endDate={endDate}
         id={id}
+        clickHandler={toggleModal}
+        className='AddNewSchool'
       />
       <div className='schoolDiv'>
         <div className='schoolNameButtonDiv'>
@@ -83,6 +86,7 @@ export default function EducationSectionDisplay({
               backgroundColor={'#9e9e9e'}
               clickHandler={deleteEducation}
               dataId={id}
+              color='#f44336'
             />
           </div>
         </div>

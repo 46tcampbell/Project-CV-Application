@@ -95,6 +95,7 @@ export default function PracticalSectionDisplay({
               backgroundColor={'#9e9e9e'}
               clickHandler={deleteWork}
               dataId={id}
+              color='#f44336'
             />
           </div>
         </div>

@@ -1,0 +1,4 @@
+/* Open state of the dialog  */
+section dialog.AddNewSchool:open {
+  transform: translateY(-30%);
+}

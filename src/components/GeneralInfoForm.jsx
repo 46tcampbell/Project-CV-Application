@@ -49,7 +49,6 @@ export default function GeneralInfoForm({
             />
           </div>
           <div className='buttonDiv'>
-            <Button text={'Cancel'} backgroundColor={'#8f8b8b'} />
             <Button text={'Submit'} backgroundColor={'#4caf50'} />
           </div>
         </form>
